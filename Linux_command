@@ -78,7 +78,6 @@ plugins=(sudo git zsh-autosuggestions zsh-syntax-highlighting)
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
 [ALIAS AND SHELL SCRIPTS]
-
 # add opt path to default PATH
 export PATH=$PATH:/opt
 
@@ -146,6 +145,8 @@ git push
 SSH KEY FOR GIT HUB 
 https://docs.github.com/en/github-ae@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
+[DOCKER]
+
 INSTALL DOCKER LINUX 
 sudo apt-get update
 sudo apt install docker.io
@@ -165,7 +166,9 @@ exit -- uscita da docker S
 docker container run -d -t ubuntu:latest  -- docker container build 
 docker rm *ns* -- rimuove container / docker rmi *di* 
 
-VIRTUAL VENV
+
+
+[VIRTUAL VENV]
 python3 -m venv n.env
 . venv/bin/activate -- attivare env
 deactivate -- disattivare 
