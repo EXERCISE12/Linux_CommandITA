@@ -26,9 +26,13 @@ sudo pacman -S cargo
 sudo cargo install topgrade 
 
  
-# 5 install brave / pycharm / spotify 
-# yay bin-brave 
-# yay -S spotify 
+echo -e "${Yel}Install YAY packages man ad AUR Helper${Yel}"
+sudo pacman -S yay
+
+echo -e "${Yel}Install Brave and Spotify with yay ${Yel}"
+yay -S brave-bin 
+yay -S spotify
+
  
 
 
