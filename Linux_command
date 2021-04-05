@@ -12,6 +12,9 @@ cat /etc/shadow --  mostra file nascosti sull'utente (se si ha accesso a questa 
 su (switch user) "n.ut" -- permette di cambiare velocemente utente
 export PATH=$PATH:/opt -- agg temp. percorso al root path (aggiungendolo alla shell .shrc o .zsh lo rende definitivo)
 software-properties-gtk -- change mirror update + keys upd varie
+efibootmgr -v -- show boot-order list
+efibootmgr -o 4,3,ecc.. -- change boot-order 
+
 
 CARTELLE + VARIE
 pwd (print working directory) --- conoscere in quale cartella ci si trova
