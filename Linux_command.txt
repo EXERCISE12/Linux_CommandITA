@@ -1,0 +1,180 @@
+[USER PERMISSION]
+
+chmod --- permette di cambiare i permessi d'un file
+chmod 777 o chmod +x +"nomefile" -- abilita tutti i permessi sul file (file è verde= full read-write-execute)
+adduser + "n.utente" -- aggiunge un nuovo utente
+usermod -aG sudo "n.ut"  -- aggiungere utente al gruppo sudo 
+userdel "n.u" -- eliminare utente
+sudo pkill -KILL -u "n.ut" 
+passwd -- cambia password
+passwd root -- cambia pass Root
+cat  /etc/passwd -- mostra vari dati sull'utente (utile in futuro per crack pass tramite hash es.)
+cat /etc/shadow --  mostra file nascosti sull'utente (se si ha accesso a questa cartella si hanno buone possibilità di crackare la pass es)
+su (switch user) "n.ut" -- permette di cambiare velocemente utente
+export PATH=$PATH:/opt -- agg temp. percorso al root path (aggiungendolo alla shell .shrc o .zsh lo rende definitivo)
+<<<<<<< HEAD
+software-properties-gtk -- change mirror update + keys upd varie
+efibootmgr -v -- show boot-order list
+efibootmgr -o 4,3,ecc.. -- change boot-order 
+
+=======
+software-properties-gtk -- change mirror update + keys
+
+[DIRECTORY + MISC]
+>>>>>>> d963e90784870d503fdd9fb6b28841747aca216f
+
+pwd (print working directory) --- conoscere in quale cartella ci si trova
+cd (change directory) -- cd.. cambia cartella all'indietro
+cd+"nome cartella"/ -- muoversi in una cartella precisa nello stessa posizione, da qui si potrà poi operare nella cartella scelta
+cd + /"nome cartella"/ -- muoversi in una cartella in una posizione diversa
+cd ~+/"nomecartella -- può essere usato al posto di scrivere root/nc
+ls -- mostra tutto ciò che si trova nella cartella in cui ci si trova
+ls + /"nomecartella"/ -- mosta tutti in file contenuti in una cartella specifica
+doppi TAB -- Suggerisce nome cartelle
+mkdir (make directory) -- crea una cartella nella posizione in cui ci si trova
+rmdir (remove directory) -- cancella una cartella
+rm -rf (remove dir not empty)
+ls -la -- mostra cartelle nascoste
+cp + "nomefile" + cartella dest./ --- copia un file in una cartella specifica  
+rm + cartella dest/"nomefile" -- rimuovere un file da una cartella specifica
+mv + "nomefile" + cartella dest./ -- sposta file in una cartella specifica
+locate + "nomefile" -- permette di individuare un file contenente uno specifico termine
+tar -xvzf "nf" -- estrarre file tar.gz
+tar -xf "nf" -estrarre file gz 
+updatedb -- aggiorna il database
+passwd -- permette di cambiare password
+ls + "nomeCMD" -- permette di visualizzare tutto ciò che un comando può fare (funzione non presente per tutti i comandi)
+-i -- installa
+dpkg -i --- decomprimi file rar,zip ecc  / installare pacchetto debian
+apt install -y --reinstall open-vm-tools-desktop fuse --- reinstallare VMtools
+sudo update-alternatives --config java 2 -- BurpSuite 
+sudo su
+pushd dirName -- salva dir in stack 
+dirs -- mostra dir salvate nello stack 
+cd -n -- cambiare dir veloce da stack_database
+man cmd -- manuale cmd
+whatis cmd -- breve descrizione cmd
+echo Hello World >> peanuts.txt -- aggiunge testo a doc
+cmd | tee sample.txt -- scrive output comando in doc 
+cut / paste -s -- copia incolla da term (vedere varie opzioni tramite man)
+head / tail -n sample.txt -- mostra solo prime linee (o n scelto) d'un doc / mostra ultime linee
+join / split -- l comando join permette di unire più file insieme / separa file 
+sort -- ordina una lista 
+unique - -- ritorna valori unici in un testo 
+wc / nl -- conta parole / conta righe d'un doc 
+ls dir | grep '.txt'  -- consente di cercare nei file i caratteri che corrispondono a un determinato modello
+alias nome_alias="alias command" -- creare un alias d'un comando o una location
+touch "file_name.txt" -- creare nuovo file
+
+sudo apt install imwheel -- mouse scrolling script 
++
+cd ~/; wget https://goo.gl/49LhhE -O imwheel-script.sh;
+chmod +x imwheel-script.sh;sh imwheel-script.sh; exit
+
+[OH MY ZSH]
+
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+source ~/.zshrc
+Cambiare Temi
+cd ~/.oh-my-zsh/themes/
+ls -a
+mousepad ~/zshrc ZSH_THEME="nomeTema"
+Aggiungere Plugin
+cd ~/.oh-my-zsh/plugins/
+ls -a
+mousepad ~/.zshrc (plugins (... z)
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+plugins=(sudo git zsh-autosuggestions zsh-syntax-highlighting)
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+[ALIAS AND SHELL SCRIPTS]
+
+# add opt path to default PATH
+export PATH=$PATH:/opt
+
+#increase history size to 1000
+export HISTSIZE=1000
+
+#hide command from history adding a space
+export HISTCONTROL=ignorespace
+
+#ignore duplicate in history
+export HISTCONTROL=ignoredups
+
+#UPDATE FEATURE
+function apt-updater {
+    apt-get update &&
+    apt-get dist-upgrade -Vy &&
+    apt-get autoremove -y &&
+    apt-get autoclean &&
+    apt-get clean &&
+    reboot
+    }
+
+#MANJARO UPDATE FEATURE 
+function pu {
+        sudo pacman -Syyu &&
+        sudo pacman -Sc &&
+        sudo reboot now
+}
+
+[MANJARO LINUX]
+
+yay "package name" -- install AUR package https://aur.archlinux.org/packages/?O=0&SeB=nd&K=&outdated=&SB=p&SO=d&PP=50&do_Search=GoF
+pacman -Sy open-vm-tools-desktop fuse -- VMtools Arch 
+sudo nano /etc/default/grub sudo nano /etc/default/grub (set timeout to 0) -- disabilitare GRUB VM
+sudo update-grub
+cat /proc/sys/vm/swappiness (60 to 10) -- ridurre swappiness RAM creando nuovo file (vedi sott)
+sudo nano /etc/sysctl.d/100-manjaro.conf
+vm.swappiness=10
+
+ZSH Manjaro setup -- https://gist.github.com/yovko/becf16eecd3a1f69a4e320a95689249e
+
+[GIT]
+echo "# text  to put into README file" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin "repository url.git"
+git push -u origin main 
+
+git add   nome_repo
+git commit -m “comment”
+git commit --all -m "comment
+git add . / git commit --amend -m "comment"
+git push 
+
+SSH KEY FOR GIT HUB 
+https://docs.github.com/en/github-ae@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+[DOCKER]
+
+INSTALL DOCKER LINUX 
+sudo apt-get update
+sudo apt install docker.io
+sudo systemctl start docker 
+sudo systemctl enable docker 
+sudo systemctl status docker
+sudo gpasswd -a ${USER} docker / su - ${USER}
+
+DOCKER COMANDI BASE
+docker pull *dockerimage*
+docker run -d -t --name *nomescelto* *dockerimage*
+docker run -t -d -p 80:80 --name *nomescelto* *dockerimage* -- docker webpages
+docker ps -- show active docker / 
+docker stats -- statistiche docker  
+docker exec -it *nomescelto* bash -- enter shell bash container / 
+exit -- uscita da docker S
+docker container run -d -t ubuntu:latest  -- docker container build 
+docker rm *ns* -- rimuove container / docker rmi *di* 
+
+[VIRTUAL VENV]
+
+python3 -m venv n.env
+. venv/bin/activate -- attivare env
+deactivate -- disattivare 
+pip install -r requirements.txt -- installare requisiti programma python3
+
+
