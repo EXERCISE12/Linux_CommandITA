@@ -1,4 +1,5 @@
-TERMINALE USER 
+[USER PERMISSION]
+
 chmod --- permette di cambiare i permessi d'un file
 chmod 777 o chmod +x +"nomefile" -- abilita tutti i permessi sul file (file è verde= full read-write-execute)
 adduser + "n.utente" -- aggiunge un nuovo utente
@@ -11,12 +12,17 @@ cat  /etc/passwd -- mostra vari dati sull'utente (utile in futuro per crack pass
 cat /etc/shadow --  mostra file nascosti sull'utente (se si ha accesso a questa cartella si hanno buone possibilità di crackare la pass es)
 su (switch user) "n.ut" -- permette di cambiare velocemente utente
 export PATH=$PATH:/opt -- agg temp. percorso al root path (aggiungendolo alla shell .shrc o .zsh lo rende definitivo)
+<<<<<<< HEAD
 software-properties-gtk -- change mirror update + keys upd varie
 efibootmgr -v -- show boot-order list
 efibootmgr -o 4,3,ecc.. -- change boot-order 
 
+=======
+software-properties-gtk -- change mirror update + keys
 
-CARTELLE + VARIE
+[DIRECTORY + MISC]
+>>>>>>> d963e90784870d503fdd9fb6b28841747aca216f
+
 pwd (print working directory) --- conoscere in quale cartella ci si trova
 cd (change directory) -- cd.. cambia cartella all'indietro
 cd+"nome cartella"/ -- muoversi in una cartella precisa nello stessa posizione, da qui si potrà poi operare nella cartella scelta
@@ -58,15 +64,15 @@ unique - -- ritorna valori unici in un testo
 wc / nl -- conta parole / conta righe d'un doc 
 ls dir | grep '.txt'  -- consente di cercare nei file i caratteri che corrispondono a un determinato modello
 alias nome_alias="alias command" -- creare un alias d'un comando o una location
+touch "file_name.txt" -- creare nuovo file
 
-sudo apt install imwheel -- app permette di aggiustare velocità scorrimento mouse
+sudo apt install imwheel -- mouse scrolling script 
 +
 cd ~/; wget https://goo.gl/49LhhE -O imwheel-script.sh;
 chmod +x imwheel-script.sh;sh imwheel-script.sh; exit
 
+[OH MY ZSH]
 
-
-OH MY ZSH
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 source ~/.zshrc
@@ -82,17 +88,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugi
 plugins=(sudo git zsh-autosuggestions zsh-syntax-highlighting)
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
-BASH Utili
-mousepad .bash_aliases
-cdls() {
-        local dir="$1"
-        local dir="${dir:=$HOME}"
-        if [[ -d "$dir" ]]; then
-                cd "$dir" >/dev/null; ls --color=auto
-        else
-                echo "bash: cdls: $dir: Directory not found"
-        fi
-}
+[ALIAS AND SHELL SCRIPTS]
 
 # add opt path to default PATH
 export PATH=$PATH:/opt
@@ -106,7 +102,7 @@ export HISTCONTROL=ignorespace
 #ignore duplicate in history
 export HISTCONTROL=ignoredups
 
-#UPDATEFEATURE
+#UPDATE FEATURE
 function apt-updater {
     apt-get update &&
     apt-get dist-upgrade -Vy &&
@@ -116,14 +112,6 @@ function apt-updater {
     reboot
     }
 
-TERMINAL ZSH 
-rd == rmdir 
-md == mkdir -p 
-d --- mostra ultime cartelle utilizzate  cd -n -- spostarsi sostituendo n a num cartella
-ls - --- mostra tutte i comandi disponibili (funziona anche con cap, kill, ssh, rake)
-take "nomec" == mkdir nome && cd nome
-/ == cd 
-
 #MANJARO UPDATE FEATURE 
 function pu {
         sudo pacman -Syyu &&
@@ -131,6 +119,7 @@ function pu {
         sudo reboot now
 }
 
+[MANJARO LINUX]
 
 yay "package name" -- install AUR package https://aur.archlinux.org/packages/?O=0&SeB=nd&K=&outdated=&SB=p&SO=d&PP=50&do_Search=GoF
 pacman -Sy open-vm-tools-desktop fuse -- VMtools Arch 
@@ -142,7 +131,7 @@ vm.swappiness=10
 
 ZSH Manjaro setup -- https://gist.github.com/yovko/becf16eecd3a1f69a4e320a95689249e
 
-GIT 
+[GIT]
 echo "# text  to put into README file" >> README.md
 git init
 git add README.md
@@ -156,6 +145,11 @@ git commit -m “comment”
 git commit --all -m "comment
 git add . / git commit --amend -m "comment"
 git push 
+
+SSH KEY FOR GIT HUB 
+https://docs.github.com/en/github-ae@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+[DOCKER]
 
 INSTALL DOCKER LINUX 
 sudo apt-get update
@@ -176,11 +170,11 @@ exit -- uscita da docker S
 docker container run -d -t ubuntu:latest  -- docker container build 
 docker rm *ns* -- rimuove container / docker rmi *di* 
 
-VIRTUAL VENV
+[VIRTUAL VENV]
+
 python3 -m venv n.env
 . venv/bin/activate -- attivare env
 deactivate -- disattivare 
-
 pip install -r requirements.txt -- installare requisiti programma python3
 
 
